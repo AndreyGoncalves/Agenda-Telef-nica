@@ -21,23 +21,26 @@ public class Telefone {
         this.tipo = "";
         this.numero = "";
     }
+
     //Colocar um laço caso não esteja no formato do telefone, para digitar novamente o telefone ou um erro
-    public boolean add(int rotulo,String telefone) throws ParseException {
+    public boolean add(String rotulo,String telefone) throws ParseException {
         MaskFormatter mask = new MaskFormatter("(##) #####-####");
         mask.setValueContainsLiteralCharacters(false);
         mask.setPlaceholderCharacter('_');
-        String teste= mask.valueToString(telefone);
-
-        return true;
+        String teste = mask.valueToString(telefone);
+        if(!this.dados_telefones.containsKey(rotulo)) {
+            this.dados_telefones.put(rotulo,telefone);
+            return true;
+        }
+        return false;
     }
 
-    public boolean remove(String telefo){
-
-        return true;
+    public boolean remove(String rot){
+        return this.dados_telefones.remove(rot,this.dados_telefones.get(rot));
     }
 
     public boolean update(String rot, String number){
-      //  dados.replace(rot,number);
+        this.dados_telefones.replace(rot,number);
         return true;
     }
 

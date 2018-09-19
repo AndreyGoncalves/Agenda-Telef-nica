@@ -9,8 +9,8 @@ public class Pessoa {
     public String telefone;
     public String email;
     private LocalDate dNasc;
-    private Email[] emails;
-    private Telefone[] telefones;
+    private Email emails;
+    private Telefone telefones;
 
     public Pessoa(){
         this.nome = "";
@@ -36,20 +36,20 @@ public class Pessoa {
         return true;
     }
 
-    public boolean updateTelefone(String r, String n, int pindex) {
-        return true;
+    public boolean updateTelefone(String r, String n) {
+        return this.telefones.update(r,n);
     }
 
-    public boolean updateEmail(String r, String n, int pindex) {
-        return true;
+    public boolean updateEmail(String r, String n) {
+        return this.emails.update(r,n);
     }
 
-    public boolean removeTelefone(String r, int pindex) {
-        return true;
+    public boolean removeTelefone(String r) {
+        return this.telefones.remove(r);
     }
 
-    public boolean removeEmail(String r, int pindex) {
-        return true;
+    public boolean removeEmail(String r) {
+        return this.emails.remove(r);
     }
 
     public String toString() {

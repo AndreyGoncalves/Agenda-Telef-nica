@@ -27,8 +27,8 @@ public class Email {
         return true;
     }
 
-    public boolean update(String r, String e,String novo){
-        tab_email.replace(r,e,novo);
+    public boolean update(String r, String e){
+        tab_email.replace(r,e);
         return true;
     }
 
@@ -51,4 +51,5 @@ public class Email {
     public String toString() {
         return this.tipo + ":" + this.email;
     }
+
 }
