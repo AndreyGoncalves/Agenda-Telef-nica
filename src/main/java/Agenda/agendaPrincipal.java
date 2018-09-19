@@ -44,12 +44,10 @@ public class agendaPrincipal {
                     String typetel = ler.next();
                     System.out.println("Digite número de telefone: ");
                     String tel = ler.next();
-                    telefone.add(typetel,tel);
                     break;
                 case 3:
                     break;
                 case 4:
-                    telefone.imprime_telefone();
                     break;
                 case 5:
                     return;

@@ -8,6 +8,7 @@ public class Agenda {
     public Agenda(){
         return;
     }
+
     public boolean addPessoa(Pessoa p){
         //leitura do nome sobrenome e data de nascimento;
         // Pessoa p = new Pessoa(nome...........);
@@ -50,7 +51,10 @@ public class Agenda {
         return true;
     }
 
-    public String toString(){
-        return "";
+    @Override
+    public String toString() {
+        return "Agenda{" +
+                "lista=" + lista +
+                '}';
     }
 }

@@ -4,12 +4,21 @@ import java.util.HashMap;
 
 public class Email {
     private HashMap<String, String> tab_email = new HashMap<>();
-    int i=0;
-    public boolean add(String e){
+    private String email;
+    private String tipo;
+
+    public Email(){
+        this.email ="";
+        this.tipo ="";
+    }
+    public Email(String tipo, String email){
+        this.tipo =tipo;
+        this.email =email;
+    }
+    public boolean add(String type,String e){
         String emailER ="^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
         if(e.matches(emailER) == true){
             tab_email.put("",e);
-            i++;
             return true;
         }else return false;
     }
@@ -23,10 +32,23 @@ public class Email {
         return true;
     }
 
-    public void imprime_email(){
-        tab_email.entrySet().forEach(item -> {
-            System.out.println("E-mail: "+item.toString());
-        });
+    public String getEmail() {
+        return email;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String toString() {
+        return this.tipo + ":" + this.email;
+    }
 }

@@ -9,13 +9,20 @@ public class Pessoa {
     public String telefone;
     public String email;
     private LocalDate dNasc;
-    private Pessoa[] pessoas;
+    private Email[] emails;
+    private Telefone[] telefones;
 
+    public Pessoa(){
+        this.nome = "";
+        this.sobreNome="";
+        this.telefone="";
+        this.email="";
+    }
     public Pessoa(String nome, String sobreNome,String email,String telefone, String dNasc) {
         this.nome = nome;
         this.sobreNome = sobreNome;
-        this.email = email;
         this.telefone = telefone;
+        this.email = email;
         this.setdNasc();
     }
 
@@ -46,15 +53,51 @@ public class Pessoa {
     }
 
     public String toString() {
-        return "";
+        return nome + sobreNome + email + telefone + dNasc;
     }
 
     public void setdNasc(){
-        /*String[] d = dNasc.split("/");
-        this.dNasc = LocalDate.of(Integer.parseInt(d[0]),Integer.parseInt(d[1]),Integer.parseInt(d[2]));*/
+      //  String[] d = dNasc.split("/");
+        //this.dNasc = LocalDate.of(Integer.parseInt(d[0]),Integer.parseInt(d[1]),Integer.parseInt(d[2]));
     }
 
     public LocalDate getdNasc() {
         return dNasc;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSobreNome() {
+        return sobreNome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setSobreNome(String sobreNome) {
+        this.sobreNome = sobreNome;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setdNasc(LocalDate dNasc) {
+        this.dNasc = dNasc;
     }
 }
