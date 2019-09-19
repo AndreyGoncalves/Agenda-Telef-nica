@@ -1,4 +1,6 @@
 package Agenda;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.text.ParseException;
 import java.util.Scanner;
@@ -16,11 +18,10 @@ import java.util.Scanner;
 public class agendaPrincipal {
     public static void main(String[] args) throws ParseException {
         Agenda PhoneBook = new Agenda();
-        Pessoa pessoa = new Pessoa("Andrey", "goncalves", "andrey@khomp.com", "48999026700","oi");
+        Pessoa pessoa = new Pessoa("Andrey","Goncalves","andrey@khomp.com","48999026700",2019,11,29);
         Telefone telefone = new Telefone();
         int which = 0;
         int opcao;
-        while (true) {
             System.out.println("------------------------------------------       -");
             System.out.println("- 1.  Digite 1 para adicionar PESSOA             -");
             System.out.println("- 2.  Digite 2 para adicionar TELEFONE           -");
@@ -35,7 +36,6 @@ public class agendaPrincipal {
 
             switch (which) {
                 case 0:
-
                     break;
                 case 1:
                     break;
@@ -48,6 +48,8 @@ public class agendaPrincipal {
                 case 3:
                     break;
                 case 4:
+                    telefone.imprimirTelefones();
+                    System.out.println("teste");
                     break;
                 case 5:
                     return;
@@ -58,6 +60,6 @@ public class agendaPrincipal {
 
 //            telefone.imprime_telefone();
 
-        }
+
     }
 }

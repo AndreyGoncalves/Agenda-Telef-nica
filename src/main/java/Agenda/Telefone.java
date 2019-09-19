@@ -2,10 +2,7 @@ package Agenda;
 
 import javax.swing.text.MaskFormatter;
 import java.text.ParseException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Telefone {
     private String tipo;
@@ -42,6 +39,12 @@ public class Telefone {
     public boolean update(String rot, String number){
         this.dados_telefones.replace(rot,number);
         return true;
+    }
+    public void imprimirTelefones() {
+
+        for (String key : dados_telefones.keySet()) {
+            System.out.println(key);
+        }
     }
 
     public String getTipo() {

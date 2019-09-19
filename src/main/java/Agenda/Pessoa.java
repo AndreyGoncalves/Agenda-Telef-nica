@@ -1,6 +1,8 @@
 package Agenda;
 import java.lang.String;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class Pessoa {
     private String nome;
@@ -18,12 +20,12 @@ public class Pessoa {
         this.telefone="";
         this.email="";
     }
-    public Pessoa(String nome, String sobreNome,String email,String telefone, String dNasc) {
+    public Pessoa(String nome, String sobreNome,String email,String telefone, int anoNas, int mesNas, int diaNas) {
         this.nome = nome;
         this.sobreNome = sobreNome;
         this.telefone = telefone;
         this.email = email;
-        this.setdNasc();
+        this.setdNasc(anoNas,mesNas,diaNas);
     }
 
     public boolean addTelefone(String n) {
@@ -52,13 +54,12 @@ public class Pessoa {
         return this.emails.remove(r);
     }
 
-    public String toString() {
-        return nome + sobreNome + email + telefone + dNasc;
-    }
+    public void setdNasc(int ano,int mes, int dia){
 
-    public void setdNasc(){
-      //  String[] d = dNasc.split("/");
-        //this.dNasc = LocalDate.of(Integer.parseInt(d[0]),Integer.parseInt(d[1]),Integer.parseInt(d[2]));
+        LocalDate hoje = LocalDate.of(ano, mes, dia);
+        DateTimeFormatter formatadorBarra = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        System.out.println("Data de Nascimento: " + hoje.format(formatadorBarra));
     }
 
     public LocalDate getdNasc() {
@@ -83,6 +84,19 @@ public class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                ", sobreNome='" + sobreNome + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", dNasc=" + dNasc +
+                ", emails=" + emails +
+                ", telefones=" + telefones +
+                '}';
     }
 
     public void setSobreNome(String sobreNome) {
