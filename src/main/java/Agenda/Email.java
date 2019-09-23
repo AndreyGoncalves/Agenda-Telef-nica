@@ -1,34 +1,37 @@
 package Agenda;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Email {
     private HashMap<String, String> tab_email = new HashMap<>();
     private String email;
     private String tipo;
 
-    public Email(){
-        this.email ="";
-        this.tipo ="";
-    }
-    public Email(String tipo, String email){
-        this.tipo =tipo;
-        this.email =email;
-    }
-    public boolean add(String type,String e){
-        String emailER ="^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
-        if(e.matches(emailER) == true){
-            tab_email.put("",e);
-            return true;
-        }else return false;
+    public Email() {
+        this.email = "";
+        this.tipo = "";
     }
 
-    public boolean remove(String r){
+    public Email(String tipo, String email) {
+        this.tipo = tipo;
+        this.email = email;
+    }
+
+    public boolean add(String type, String e) {
+        String emailER = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+        if (e.matches(emailER) == true) {
+            tab_email.put(type, e);
+            return true;
+        } else return false;
+    }
+
+    public boolean remove(String r) {
         return true;
     }
 
-    public boolean update(String r, String e){
-        tab_email.replace(r,e);
+    public boolean update(String r, String e) {
+        tab_email.replace(r, e);
         return true;
     }
 
@@ -49,7 +52,10 @@ public class Email {
     }
 
     public String toString() {
-        return this.tipo + ":" + this.email;
-    }
+        for (Map.Entry<String, String> elemento : tab_email.entrySet()) {
+            System.out.println(elemento.getKey() + ":" + elemento.getValue());
+        }
 
+        return null;
+    }
 }

@@ -1,15 +1,12 @@
 package Agenda;
 import java.lang.String;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
-public class Pessoa {
+public class    Pessoa {
     private String nome;
     private String sobreNome;
-    //private int totalElementos; ou na agenda
-    public String telefone;
-    public String email;
     private LocalDate dNasc;
     private Email emails;
     private Telefone telefones;
@@ -17,24 +14,21 @@ public class Pessoa {
     public Pessoa(){
         this.nome = "";
         this.sobreNome="";
-        this.telefone="";
-        this.email="";
+
     }
     public Pessoa(String nome, String sobreNome,String email,String telefone, int anoNas, int mesNas, int diaNas) {
         this.nome = nome;
         this.sobreNome = sobreNome;
-        this.telefone = telefone;
-        this.email = email;
         this.setdNasc(anoNas,mesNas,diaNas);
     }
 
-    public boolean addTelefone(String n) {
-        this.telefone = n;
+    public boolean addTelefone(String rot, String n) throws ParseException {
+        this.telefones.add(rot, n);
         return true;
     }
 
-    public boolean addEmail(String mail) {
-        this.email = mail;
+    public boolean addEmail(String rot, String mail) {
+        this.emails.add(rot,mail);
         return true;
     }
 
@@ -58,60 +52,52 @@ public class Pessoa {
 
         LocalDate hoje = LocalDate.of(ano, mes, dia);
         DateTimeFormatter formatadorBarra = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        System.out.println("Data de Nascimento: " + hoje.format(formatadorBarra));
     }
 
     public LocalDate getdNasc() {
-        return dNasc;
-    }
-
-    public String getNome() {
-        return nome;
+        return this.dNasc;
     }
 
     public String getSobreNome() {
-        return sobreNome;
+        return this.sobreNome;
     }
-
     public String getTelefone() {
-        return telefone;
+         return this.telefones.toString();
     }
 
+    public String getNome() {
+        return this.nome;
+    }
     public String getEmail() {
-        return email;
+        return this.emails.toString();
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    @Override
     public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", sobreNome='" + sobreNome + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", email='" + email + '\'' +
-                ", dNasc=" + dNasc +
-                ", emails=" + emails +
-                ", telefones=" + telefones +
-                '}';
+        System.out.println("Nome:"+ getNome());
+        System.out.println("Sobrenome:"+ getSobreNome());
+        System.out.println("Data de Nascimento:"+ getdNasc());
+        System.out.println("Telefone:"+ getTelefone());
+        System.out.println("E-mail:"+ getEmail());
+        return null;
     }
 
     public void setSobreNome(String sobreNome) {
         this.sobreNome = sobreNome;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelefone(String rot, String telefone) throws ParseException {
+        this.telefones.add(rot,telefone);
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String rot, String email) {
+        this.emails.add(rot,email);
     }
 
     public void setdNasc(LocalDate dNasc) {
         this.dNasc = dNasc;
     }
+
 }

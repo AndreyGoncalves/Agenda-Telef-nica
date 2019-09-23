@@ -17,11 +17,26 @@ import java.util.Scanner;
  * */
 public class agendaPrincipal {
     public static void main(String[] args) throws ParseException {
+
         Agenda PhoneBook = new Agenda();
         Pessoa pessoa = new Pessoa("Andrey","Goncalves","andrey@khomp.com","48999026700",2019,11,29);
-        Telefone telefone = new Telefone();
-        int which = 0;
+        Telefone telefone2 = new Telefone();
+        Email email = new Email();
+
+      /*  telefone2.add("Comercial","48991508756");
+        telefone2.add("Khomp", "77991508756");
+        telefone2.add("C1","00000000000");
+        telefone2.imprimirTelefones();
+        email.add("comercial","andreygoncalves@Live.com");
+        email.add("comerc2ial","andreygoncalves@Live.com");
+        email.add("comerci2sal","andreygoncalves@Live.com");
+        email.add("comç~çççercial","2ça@Live.com");
+        email.toString();*/
+
+      pessoa.toString();
+      /*        int which = 0;
         int opcao;
+        while(true) {
             System.out.println("------------------------------------------       -");
             System.out.println("- 1.  Digite 1 para adicionar PESSOA             -");
             System.out.println("- 2.  Digite 2 para adicionar TELEFONE           -");
@@ -38,6 +53,7 @@ public class agendaPrincipal {
                 case 0:
                     break;
                 case 1:
+                    PhoneBook.addPessoa(pessoa);
                     break;
                 case 2:
                     System.out.println("Digite o tipo de telefone: ");
@@ -48,18 +64,17 @@ public class agendaPrincipal {
                 case 3:
                     break;
                 case 4:
+                    PhoneBook.toString();
                     telefone.imprimirTelefones();
-                    System.out.println("teste");
                     break;
                 case 5:
                     return;
                 default:
                     return;
-            }
+            }*/
 
 
-//            telefone.imprime_telefone();
-
+//
 
     }
 }

@@ -17,7 +17,8 @@ public class Agenda {
         //totalElementos ++
 
 
-        if (!lista.add(p)){
+        if (!lista.contains(p)){
+                lista.add(p);
                 return false;
             }
             return true;
